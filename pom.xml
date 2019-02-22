@@ -43,6 +43,16 @@
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.0</version>
+          <configuration>
+            <release>11</release>
+          </configuration>
+          <dependencies>
+              <dependency>
+                  <groupId>org.ow2.asm</groupId>
+                  <artifactId>asm</artifactId>
+                  <version>6.2</version> <!-- Use newer version of ASM -->
+              </dependency>
+          </dependencies>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
