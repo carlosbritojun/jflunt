@@ -1,2 +1,2 @@
 # jflunt
-Framework for Domain Notifications based in Flunt (.NET) for @andrebaltieri
+A Java implementation of Domain Notifications Pattern based in Flunt (.NET) for @andrebaltieri
