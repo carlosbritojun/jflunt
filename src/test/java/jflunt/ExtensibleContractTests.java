@@ -14,14 +14,14 @@ public class ExtensibleContractTests {
 
         var wrong = new Contract()
             .requires()
-            .mustBe(new ExtensibleContractTests.ProcessWrong(), "boolean", "an error generated");
+            .mustBe(new ExtensibleContractTests.ProcessWrong(), "boolean", "process error");
 
         assertEquals(false, wrong.isValid());
         assertEquals(1, wrong.getNotifications().size());
 
         var right = new Contract()
             .requires()
-            .mustBe(new ExtensibleContractTests.ProcessRight(), "boolean", "an error generated");
+            .mustBe(new ExtensibleContractTests.ProcessRight(), "boolean", "no process error");
 
         assertEquals(true, right.isValid());
     }
