@@ -421,7 +421,7 @@ public class JavaTimeValidationContractTests {
 
         var wrong = new Contract()
                 .requires()
-                .isBetween(LocalDate.of(2017, 10, 1), from, to, "date", "The date must be between values");
+                .isBetween(LocalDate.of(2017, 10, 1), from, to, "date", " The date must be between values");
 
         assertEquals(false, wrong.isValid());
         assertEquals(1, wrong.getNotifications().size());
