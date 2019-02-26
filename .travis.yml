@@ -3,9 +3,6 @@ language: java
 jdk:
   - oraclejdk11
   - openjdk10
-  - oraclejdk9
-  - oraclejdk8
-  - openjdkea
   
 sudo: false
 
