@@ -8,13 +8,11 @@ public class Contract extends Notifiable implements BarrelValidationContract {
         return this;
     }
 
-    public Contract join(Notifiable[]... items) {
+    public Contract join(Notifiable... items) {
         if (items != null) {
-            for(Notifiable[] varitems: items) {
-                for(Notifiable notifiable: varitems) {
-                    if (notifiable.isInvalid()) {
-                        addNotifications(notifiable.getNotifications());
-                    }
+            for(Notifiable notifiable: items) {
+                if (notifiable.isInvalid()) {
+                    addNotifications(notifiable.getNotifications());
                 }
             }
         }

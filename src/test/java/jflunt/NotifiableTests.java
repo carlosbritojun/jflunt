@@ -7,7 +7,7 @@ import org.junit.Test;
 import jflunt.entities.Phone;
 import jflunt.notifications.Notifiable;
 
-public class EntityContractTests extends Notifiable{
+public class NotifiableTests extends Notifiable{
 
     @Test
     public void AddNotificationForOneNotifiable() {
