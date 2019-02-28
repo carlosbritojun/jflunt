@@ -21,23 +21,25 @@ public abstract class Notifiable {
         this.notifications.add(new Notification(property, message));
     }
 
-    public void addNotification(List<Notification> notification) {
+    public void addNotification(Notification notification) {
+        this.notifications.add(notification);
+    }
+
+    public void addNotifications(List<Notification> notification) {
         this.notifications.addAll(notification);
     }
 
-    public void addNotification(Collection<Notification> notification) {
+    public void addNotifications(Collection<Notification> notification) {
         this.notifications.addAll(notification);
     }
     
-    public void addNotification(Notifiable notifiable) {
+    public void addNotifications(Notifiable notifiable) {
         this.notifications.addAll(notifiable.getNotifications());
     }
 
-    public void addNotification(Notifiable[]... items) {
-        for (Notifiable[] varitems: items) {
-            for(Notifiable item: varitems) {
-                addNotification(item);
-            }
+    public void addNotifications(Notifiable... items) {
+        for (Notifiable item: items) {
+            addNotifications(item);
         }
     }
 

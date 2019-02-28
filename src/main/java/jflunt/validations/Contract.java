@@ -13,7 +13,7 @@ public class Contract extends Notifiable implements BarrelValidationContract {
             for(Notifiable[] varitems: items) {
                 for(Notifiable notifiable: varitems) {
                     if (notifiable.isInvalid()) {
-                        addNotification(notifiable.getNotifications());
+                        addNotifications(notifiable.getNotifications());
                     }
                 }
             }
