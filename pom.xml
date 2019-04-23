@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project 
+  xmlns="http://maven.apache.org/POM/4.0.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>jflunt</groupId>
+  <groupId>com.github.carlosbritojun</groupId>
   <artifactId>jflunt</artifactId>
-  <version>1.0-SNAPSHOT</version>
-
-  <name>jflunt</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.11</maven.compiler.source>
-    <maven.compiler.target>1.11</maven.compiler.target>
-  </properties>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
 
   <dependencies>
     <dependency>
@@ -26,6 +20,50 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <name>jflunt</name>
+  <url>https://github.com/carlosbritojun/jflunt</url>
+  <description>Java implementation of Domain Notification Pattern based in Flunt(.NET) developed by @andrebaltieri</description>
+  
+  <organization>
+      <name>com.github.carlosbritojun</name>
+      <url>https://github.com/carlosbritojun</url>
+  </organization>
+
+  <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/carlosbritojun/jflunt/issues</url>
+    </issueManagement>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://github.com/carlosbritojun/jflunt/blob/master/LICENSE</url>
+    </license>
+  </licenses>
+  
+  <scm>
+    <url>http://github.com/carlosbritojun/jflunt</url>
+    <connection>scm:git:git://github.com/carlosbritojun/jflunt.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:carlosbritojun/jflunt.git</developerConnection>
+  </scm>
+  
+  <developers>
+    <developer>
+      <name>Carlos Alberto de Brito Júnior</name>
+      <email>carlosbritojun@gmail.com</email>
+      <organization>com.github.carlosbritojun</organization>
+      <organizationUrl>https://github.com/carlosbritojun</organizationUrl>
+    </developer>
+  </developers>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.11</maven.compiler.source>
+    <maven.compiler.target>1.11</maven.compiler.target>
+  </properties>
+
+  
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
@@ -79,7 +117,28 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>sign-artifacts</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>sign</goal>
+              </goals>
+            </execution>
+          </executions>
+      </plugin>
       </plugins>
     </pluginManagement>
   </build>
+
+  <distributionManagement>
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+</distributionManagement>
 </project>
