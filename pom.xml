@@ -6,9 +6,9 @@
 
   <groupId>io.github.carlosbritojun</groupId>
   <artifactId>jflunt</artifactId>
-  <version>1.0.0</version>
+  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -18,49 +18,12 @@
     </dependency>
   </dependencies>
 
-  <name>jflunt</name>
-  <url>https://github.com/carlosbritojun/jflunt</url>
-  <description>Java implementation of Domain Notification Pattern based in Flunt(.NET) developed by @andrebaltieri</description>
-  
-  <organization>
-      <name>com.github.carlosbritojun</name>
-      <url>https://github.com/carlosbritojun</url>
-  </organization>
-
-  <issueManagement>
-      <system>GitHub</system>
-      <url>https://github.com/carlosbritojun/jflunt/issues</url>
-  </issueManagement>
-
-  <licenses>
-    <license>
-      <name>MIT License</name>
-      <url>https://github.com/carlosbritojun/jflunt/blob/master/LICENSE</url>
-    </license>
-  </licenses>
-
-  <scm>
-		<url>https://github.com/carlosbritojun/jflunt</url>
-		<connection>scm:git:git://github.com/carlosbritojun/jflunt.git</connection>
-		<developerConnection>scm:git:git@github.com:carlosbritojun/jflunt.git</developerConnection>
-	  <tag>jflunt-1.0.0</tag>
-  </scm>
-
-  <developers>
-    <developer>
-      <name>Carlos Alberto de Brito Júnior</name>
-      <email>carlosbritojun@gmail.com</email>
-      <organization>com.github.carlosbritojun</organization>
-      <organizationUrl>https://github.com/carlosbritojun</organizationUrl>
-    </developer>
-  </developers>
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.11</maven.compiler.source>
     <maven.compiler.target>1.11</maven.compiler.target>
   </properties>
-
+  
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
@@ -113,42 +76,7 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-gpg-plugin</artifactId>
-          <executions>
-            <execution>
-              <id>sign-artifacts</id>
-              <phase>verify</phase>
-              <goals>
-                <goal>sign</goal>
-              </goals>
-            </execution>
-          </executions>
-      </plugin>
-        <plugin>
-            <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.7</version>
-            <extensions>true</extensions>
-            <configuration>
-                <serverId>ossrh</serverId>
-                <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                <autoReleaseAfterClose>true</autoReleaseAfterClose>
-            </configuration>
-        </plugin>
       </plugins>
     </pluginManagement>
   </build>
-
- <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-        <id>ossrh</id>
-        <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-  </distributionManagement>
 </project>
