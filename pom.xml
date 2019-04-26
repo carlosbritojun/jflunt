@@ -6,7 +6,7 @@
 
   <groupId>io.github.carlosbritojun</groupId>
   <artifactId>jflunt</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
 
   <name>jflunt</name>
@@ -31,7 +31,7 @@
     <connection>scm:git:git://github.com/carlosbritojun/jflunt.git</connection>
     <developerConnection>scm:git:ssh://github.com:carlosbritojun/jflunt.git</developerConnection>
     <url>https://github.com/carlosbritojun/jflunt</url>
-    <tag>HEAD</tag>
+    <tag>jflunt-1.0.0</tag>
   </scm>
   
   <dependencies>
