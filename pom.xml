@@ -21,7 +21,7 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/carlosbritojun/jflunt.git</connection>
+    <connection>scm:git:https://github.com/carlosbritojun/jflunt.git</connection>
     <developerConnection>scm:git:https://github.com/carlosbritojun/jflunt.git</developerConnection>
     <url>https://github.com/carlosbritojun/jflunt</url>
     <tag>jflunt-1.0.0</tag>
