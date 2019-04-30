@@ -2,7 +2,10 @@ language: java
 
 jdk:
   - oraclejdk11
-  - openjdk10
+  - oraclejdk10
+  - oraclejdk9
+  - oraclejdk8
+  - openjdk8
   
 sudo: false
 
