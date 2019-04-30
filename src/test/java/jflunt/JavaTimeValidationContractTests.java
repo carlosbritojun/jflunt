@@ -133,36 +133,6 @@ public class JavaTimeValidationContractTests {
     }
 
     @Test
-    public void isGreaterOrEqualsThan_Calendar() {
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.clear(Calendar.MILLISECOND);
-
-        Calendar calendarCompareWrong = Calendar.getInstance();
-        calendarCompareWrong.clear(Calendar.MILLISECOND);
-
-        Calendar calendarCompareRight = Calendar.getInstance();
-        calendarCompareRight.clear(Calendar.MILLISECOND);
-
-        calendarCompareWrong.add(Calendar.MINUTE, 5);
-
-        Contract wrong = new Contract()
-                .requires()
-                .isGreaterOrEqualsThan(calendar, calendarCompareWrong, "date", "Date 1 should be greater than Date 2");
-
-        assertEquals(false, wrong.isValid());
-        assertEquals(1, wrong.getNotifications().size());
-
-        calendarCompareRight.add(Calendar.MINUTE, -5);
-
-        Contract right = new Contract()
-                .requires()
-                .isGreaterOrEqualsThan(calendar, calendarCompareRight, "date", "Date 1 is not greater or equals than Date 2");
-
-        assertEquals(true, right.isValid());
-    }
-
-    @Test
     public void isLowerThan_LocalDateTime() {
 
         LocalDateTime date = LocalDateTime.of(2019, 2, 1, 15, 0, 0);

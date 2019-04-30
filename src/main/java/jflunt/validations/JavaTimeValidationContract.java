@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.MonthDay;
 import java.time.ZonedDateTime;
-import java.util.Calendar;
 
 public interface JavaTimeValidationContract extends ExtensibleContract {
 
@@ -47,17 +46,6 @@ public interface JavaTimeValidationContract extends ExtensibleContract {
 
     default public Contract isGreaterThan(MonthDay val, MonthDay comparer, String property, String message) {
         if (val.isBefore(comparer) || val.equals(comparer))
-            getContract().addNotification(property, message);
-
-        return getContract();
-    }
-
-    /**
-     * @deprecated
-     * Use the java.time API instead of Calendar and Date classes
-     */
-    default public Contract isGreaterThan(Calendar val, Calendar comparer, String property, String message) {
-        if (val.compareTo(comparer) <= 0)
             getContract().addNotification(property, message);
 
         return getContract();
@@ -105,17 +93,6 @@ public interface JavaTimeValidationContract extends ExtensibleContract {
         return getContract();
     }
 
-    /**
-     * @deprecated
-     * Use the java.time API instead of Calendar and Date classes
-     */
-    default public Contract isGreaterOrEqualsThan(Calendar val, Calendar comparer, String property, String message) {
-        if (val.compareTo(comparer) < 0)
-            getContract().addNotification(property, message);
-
-        return getContract();
-    }
-
     default public Contract isLowerThan(LocalDateTime val, LocalDateTime comparer, String property, String message) {
         if (val.isAfter(comparer) || val.isEqual(comparer))
             getContract().addNotification(property, message);
@@ -153,17 +130,6 @@ public interface JavaTimeValidationContract extends ExtensibleContract {
 
     default public Contract isLowerThan(ZonedDateTime val, ZonedDateTime comparer, String property, String message) {
         if (val.isAfter(comparer) || val.isEqual(comparer))
-            getContract().addNotification(property, message);
-
-        return getContract();
-    }
-
-    /**
-     * @deprecated
-     * Use the java.time API instead of Calendar and Date classes
-     */
-    default public Contract isLowerThan(Calendar val, Calendar comparer, String property, String message) {
-        if (val.compareTo(comparer) >= 0)
             getContract().addNotification(property, message);
 
         return getContract();
@@ -210,17 +176,6 @@ public interface JavaTimeValidationContract extends ExtensibleContract {
 
         return getContract();
     }
-
-    /**
-     * @deprecated
-     * Use the java.time API instead of Calendar and Date classes
-     */
-    default public Contract isLowerOrEqualsThan(Calendar val, Calendar comparer, String property, String message) {
-        if (val.compareTo(comparer) > 0)
-            getContract().addNotification(property, message);
-
-        return getContract();
-    }
    
     default public Contract isBetween(LocalDateTime val, LocalDateTime from, LocalDateTime to, String property, String message) {
         if (!(val.isAfter(from) && val.isBefore(to)))
@@ -245,17 +200,6 @@ public interface JavaTimeValidationContract extends ExtensibleContract {
 
     default public Contract isBetween(ZonedDateTime val, ZonedDateTime from, ZonedDateTime to, String property, String message) {
         if (!(val.isAfter(from) && val.isBefore(to)))
-            getContract().addNotification(property, message);
-
-        return getContract();
-    }
-
-    /**
-     * @deprecated
-     * Use the java.time API instead of Calendar and Date classes
-     */
-    default public Contract isBetween(Calendar val, Calendar from, Calendar to, String property, String message) {
-        if (!(val.compareTo(from) >= 0 && val.compareTo(to) <= 0))
             getContract().addNotification(property, message);
 
         return getContract();
