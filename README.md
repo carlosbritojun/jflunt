@@ -3,3 +3,30 @@
 ![GitHub](https://img.shields.io/github/license/carlosbritojun/jflunt.svg?label=license)
 
 Java implementation of Domain Notification Pattern based in [Flunt](https://github.com/andrebaltieri/flunt)(.NET) developed by @andrebaltieri
+
+## Dependencies
+Java 8+
+
+## Instalation
+See more: https://mvnrepository.com/artifact/com.github.carlosbritojun/jflunt
+
+**Maven**
+```
+<dependency>
+  <groupId>com.github.carlosbritojun</groupId>
+  <artifactId>jflunt</artifactId>
+  <version>1.0.1</version>
+</dependency>
+```
+
+**Gradle**
+```
+// https://mvnrepository.com/artifact/com.github.carlosbritojun/jflunt
+compile group: 'com.github.carlosbritojun', name: 'jflunt', version: '1.0.1'
+```
+
+**Ivy**
+```
+<!-- https://mvnrepository.com/artifact/com.github.carlosbritojun/jflunt -->
+<dependency org="com.github.carlosbritojun" name="jflunt" rev="1.0.1"/>
+```
