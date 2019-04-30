@@ -8,12 +8,12 @@ import jflunt.validations.Contract;
 public class BooleanValidationContractTests {
     @Test
     public void isTrue() {
-        var wrong = new Contract().requires().isTrue(false, "boolean", "Boolean is false");
+        Contract wrong = new Contract().requires().isTrue(false, "boolean", "Boolean is false");
 
         assertEquals(false, wrong.isValid());
         assertEquals(1, wrong.getNotifications().size());
 
-        var right = new Contract().requires().isTrue(true, "boolean", "Boolean is false");
+        Contract right = new Contract().requires().isTrue(true, "boolean", "Boolean is false");
 
         assertEquals(true, right.isValid());
     }
@@ -21,12 +21,12 @@ public class BooleanValidationContractTests {
     @Test
     public void isFalse() {
 
-        var wrong = new Contract().requires().isFalse(true, "boolean", "Boolean is true");
+        Contract wrong = new Contract().requires().isFalse(true, "boolean", "Boolean is true");
 
         assertEquals(false, wrong.isValid());
         assertEquals(1, wrong.getNotifications().size());
 
-        var right = new Contract().requires().isFalse(false, "boolean", "Boolean is true");
+        Contract right = new Contract().requires().isFalse(false, "boolean", "Boolean is true");
 
         assertEquals(true, right.isValid());
     }

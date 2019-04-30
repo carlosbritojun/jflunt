@@ -10,24 +10,20 @@ import org.junit.Test;
 import jflunt.validations.Contract;
 
 public class DoubleValidationContractTests {
-    
+
     @Test
     public void isGreaterThanBigDouble() {
-        
-        var v1 = 5D;
-        var v2 = 10D;
 
-        var wrong = new Contract()
-            .requires()
-            .isGreaterThan(v1, v2, "double", "V1 is not greater than v2")
-            .isGreaterThan(v1, 5D, "double", "V1 is not greater than v2");
+        double v1 = 5D;
+        double v2 = 10D;
+
+        Contract wrong = new Contract().requires().isGreaterThan(v1, v2, "double", "V1 is not greater than v2")
+                .isGreaterThan(v1, 5D, "double", "V1 is not greater than v2");
 
         assertEquals(false, wrong.isValid());
         assertEquals(2, wrong.getNotifications().size());
 
-        var right = new Contract()
-            .requires()
-            .isGreaterThan(v2, v1, "double", "V1 is not greater than v2");
+        Contract right = new Contract().requires().isGreaterThan(v2, v1, "double", "V1 is not greater than v2");
 
         assertEquals(true, right.isValid());
     }
@@ -35,13 +31,11 @@ public class DoubleValidationContractTests {
     @Test
     public void isGreaterThanBigDecimal() {
 
-        var v1 = new BigDecimal(5);
-        var v2 = 10D;
+        BigDecimal v1 = new BigDecimal(5);
+        double v2 = 10D;
 
-        var wrong = new Contract()
-            .requires()
-            .isGreaterThan(v1, v2, "double", "V1 is not greater than v2")
-            .isGreaterThan(v1, 5D, "double", "V1 is not greater than v2");
+        Contract wrong = new Contract().requires().isGreaterThan(v1, v2, "double", "V1 is not greater than v2")
+                .isGreaterThan(v1, 5D, "double", "V1 is not greater than v2");
 
         assertEquals(false, wrong.isValid());
         assertEquals(2, wrong.getNotifications().size());
@@ -49,9 +43,7 @@ public class DoubleValidationContractTests {
         v1 = new BigDecimal(10);
         v2 = 5D;
 
-        var right = new Contract()
-            .requires()
-            .isGreaterThan(v1, v2, "double", "V1 is not greater than v2");
+        Contract right = new Contract().requires().isGreaterThan(v1, v2, "double", "V1 is not greater than v2");
 
         assertEquals(true, right.isValid());
     }
@@ -59,12 +51,10 @@ public class DoubleValidationContractTests {
     @Test
     public void isGreaterThanFloat() {
 
-        var v1 = 5F;
-        var v2 = 10D;
+        float v1 = 5F;
+        double v2 = 10D;
 
-        var wrong = new Contract()
-            .requires()
-            .isGreaterThan(v1, v2, "double", "V1 is not greater than v2");
+        Contract wrong = new Contract().requires().isGreaterThan(v1, v2, "double", "V1 is not greater than v2");
 
         assertEquals(false, wrong.isValid());
         assertEquals(1, wrong.getNotifications().size());
@@ -72,9 +62,7 @@ public class DoubleValidationContractTests {
         v1 = 10F;
         v2 = 5D;
 
-        var right = new Contract()
-            .requires()
-            .isGreaterThan(v1, v2, "double", "V1 is not greater than v2");
+        Contract right = new Contract().requires().isGreaterThan(v1, v2, "double", "V1 is not greater than v2");
 
         assertEquals(true, right.isValid());
     }
@@ -82,19 +70,15 @@ public class DoubleValidationContractTests {
     @Test
     public void isGreaterThanInteger() {
 
-        var v1 = 5;
-        var v2 = 10D;
+        int v1 = 5;
+        double v2 = 10D;
 
-        var wrong = new Contract()
-            .requires()
-            .isGreaterThan(v1, v2, "double", "V1 is not greater than v2");
+        Contract wrong = new Contract().requires().isGreaterThan(v1, v2, "double", "V1 is not greater than v2");
 
         assertEquals(false, wrong.isValid());
         assertEquals(1, wrong.getNotifications().size());
 
-        var right = new Contract()
-            .requires()
-            .isGreaterThan(v2, v1, "double", "V1 is not greater than v2");
+        Contract right = new Contract().requires().isGreaterThan(v2, v1, "double", "V1 is not greater than v2");
 
         assertEquals(true, right.isValid());
     }
@@ -102,41 +86,33 @@ public class DoubleValidationContractTests {
     @Test
     public void isGreaterThanLong() {
 
-        var v1 = 5L;
-        var v2 = 10D;
+        long v1 = 5L;
+        double v2 = 10D;
 
-        var wrong = new Contract()
-            .requires()
-            .isGreaterThan(v1, v2, "double", "V1 is not greater than v2");
+        Contract wrong = new Contract().requires().isGreaterThan(v1, v2, "double", "V1 is not greater than v2");
 
         assertEquals(false, wrong.isValid());
         assertEquals(1, wrong.getNotifications().size());
 
-        var right = new Contract()
-            .requires()
-            .isGreaterThan(v2, v1, "double", "V1 is not greater than v2");
+        Contract right = new Contract().requires().isGreaterThan(v2, v1, "double", "V1 is not greater than v2");
 
         assertEquals(true, right.isValid());
     }
 
-
     @Test
     public void isGreaterOrEqualsThanDouble() {
-        
-        var v1 = 2D;
-        var v2 = 5D;
 
-        var wrong = new Contract()
-            .requires()
-            .isGreaterOrEqualsThan(v1, v2, "double", "V1 is not greater than v2");
+        double v1 = 2D;
+        double v2 = 5D;
+
+        Contract wrong = new Contract().requires().isGreaterOrEqualsThan(v1, v2, "double", "V1 is not greater than v2");
 
         assertEquals(false, wrong.isValid());
         assertEquals(1, wrong.getNotifications().size());
 
-        var right = new Contract()
-            .requires()
-            .isGreaterOrEqualsThan(v1, new BigDecimal(1), "bigDecimal", "V1 is not greater than v2")
-            .isGreaterOrEqualsThan(v1, new BigDecimal(2), "bigDecimal", "V1 is not greater than v2");
+        Contract right = new Contract().requires()
+                .isGreaterOrEqualsThan(v1, new BigDecimal(1), "bigDecimal", "V1 is not greater than v2")
+                .isGreaterOrEqualsThan(v1, new BigDecimal(2), "bigDecimal", "V1 is not greater than v2");
 
         assertEquals(true, right.isValid());
     }
@@ -144,20 +120,16 @@ public class DoubleValidationContractTests {
     @Test
     public void isLowerThanBigDecimal() {
 
-        var v1 = new BigDecimal(10);
-        var v2 = 5D;
+        BigDecimal v1 = new BigDecimal(10);
+        double v2 = 5D;
 
-        var wrong = new Contract()
-            .requires()
-            .isLowerThan(v1, v2, "double", "V1 is not lower than v2")
-            .isLowerThan(v1, new BigDecimal(5), "double", "V1 is not lower than v2");
+        Contract wrong = new Contract().requires().isLowerThan(v1, v2, "double", "V1 is not lower than v2")
+                .isLowerThan(v1, new BigDecimal(5), "double", "V1 is not lower than v2");
 
         assertEquals(false, wrong.isValid());
         assertEquals(2, wrong.getNotifications().size());
 
-        var right = new Contract()
-            .requires()
-            .isLowerThan(v2, v1, "double", "V1 is not lower than v2");
+        Contract right = new Contract().requires().isLowerThan(v2, v1, "double", "V1 is not lower than v2");
 
         assertEquals(true, right.isValid());
     }
@@ -165,20 +137,16 @@ public class DoubleValidationContractTests {
     @Test
     public void isLowerThanDouble() {
 
-        var v1 = 10D;
-        var v2 = 5D;
+        double v1 = 10D;
+        double v2 = 5D;
 
-        var wrong = new Contract()
-            .requires()
-            .isLowerThan(v1, v2, "double", "V1 is not lower than v2")
-            .isLowerThan(v1, new BigDecimal(5), "double", "V1 is not lower than v2");
+        Contract wrong = new Contract().requires().isLowerThan(v1, v2, "double", "V1 is not lower than v2")
+                .isLowerThan(v1, new BigDecimal(5), "double", "V1 is not lower than v2");
 
         assertEquals(false, wrong.isValid());
         assertEquals(2, wrong.getNotifications().size());
 
-        var right = new Contract()
-            .requires()
-            .isLowerThan(v2, v1, "double", "V1 is not lower than v2");
+        Contract right = new Contract().requires().isLowerThan(v2, v1, "double", "V1 is not lower than v2");
 
         assertEquals(true, right.isValid());
     }
@@ -186,20 +154,16 @@ public class DoubleValidationContractTests {
     @Test
     public void isLowerThanFloat() {
 
-        var v1 = 10F;
-        var v2 = 5D;
+        float v1 = 10F;
+        double v2 = 5D;
 
-        var wrong = new Contract()
-            .requires()
-            .isLowerThan(v1, v2, "double", "V1 is not lower than v2")
-            .isLowerThan(v1, new BigDecimal(5), "double", "V1 is not lower than v2");
+        Contract wrong = new Contract().requires().isLowerThan(v1, v2, "double", "V1 is not lower than v2")
+                .isLowerThan(v1, new BigDecimal(5), "double", "V1 is not lower than v2");
 
         assertEquals(false, wrong.isValid());
         assertEquals(2, wrong.getNotifications().size());
 
-        var right = new Contract()
-            .requires()
-            .isLowerThan(v2, v1, "double", "V1 is not lower than v2");
+        Contract right = new Contract().requires().isLowerThan(v2, v1, "double", "V1 is not lower than v2");
 
         assertEquals(true, right.isValid());
     }
@@ -207,20 +171,16 @@ public class DoubleValidationContractTests {
     @Test
     public void isLowerThanInteger() {
 
-        var v1 = 10;
-        var v2 = 5D;
+        int v1 = 10;
+        double v2 = 5D;
 
-        var wrong = new Contract()
-            .requires()
-            .isLowerThan(v1, v2, "double", "V1 is not lower than v2")
-            .isLowerThan(v1, new BigDecimal(5), "double", "V1 is not lower than v2");
+        Contract wrong = new Contract().requires().isLowerThan(v1, v2, "double", "V1 is not lower than v2")
+                .isLowerThan(v1, new BigDecimal(5), "double", "V1 is not lower than v2");
 
         assertEquals(false, wrong.isValid());
         assertEquals(2, wrong.getNotifications().size());
 
-        var right = new Contract()
-            .requires()
-            .isLowerThan(v2, v1, "double", "V1 is not lower than v2");
+        Contract right = new Contract().requires().isLowerThan(v2, v1, "double", "V1 is not lower than v2");
 
         assertEquals(true, right.isValid());
     }
@@ -228,20 +188,16 @@ public class DoubleValidationContractTests {
     @Test
     public void isLowerThanLong() {
 
-        var v1 = 10L;
-        var v2 = 5D;
+        long v1 = 10L;
+        double v2 = 5D;
 
-        var wrong = new Contract()
-            .requires()
-            .isLowerThan(v1, v2, "double", "V1 is not lower than v2")
-            .isLowerThan(v1, new BigDecimal(5), "double", "V1 is not lower than v2");
+        Contract wrong = new Contract().requires().isLowerThan(v1, v2, "double", "V1 is not lower than v2")
+                .isLowerThan(v1, new BigDecimal(5), "double", "V1 is not lower than v2");
 
         assertEquals(false, wrong.isValid());
         assertEquals(2, wrong.getNotifications().size());
 
-        var right = new Contract()
-            .requires()
-            .isLowerThan(v2, v1, "double", "V1 is not lower than v2");
+        Contract right = new Contract().requires().isLowerThan(v2, v1, "double", "V1 is not lower than v2");
 
         assertEquals(true, right.isValid());
     }
@@ -249,13 +205,12 @@ public class DoubleValidationContractTests {
     @Test
     public void isBetween() {
 
-        var val = -1.01D;
-        var from = 1.01D;
-        var to = 10D;
+        double val = -1.01D;
+        double from = 1.01D;
+        double to = 10D;
 
-        var wrong = new Contract()
-            .requires()
-            .isBetween(val, from, to, "double", "The value -1.01 must be between 1.01 and 10");
+        Contract wrong = new Contract().requires().isBetween(val, from, to, "double",
+                "The value -1.01 must be between 1.01 and 10");
 
         assertEquals(false, wrong.isValid());
         assertEquals(1, wrong.getNotifications().size());
@@ -264,7 +219,7 @@ public class DoubleValidationContractTests {
         from = 1.01D;
         to = 1.02D;
 
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .isBetween(val, from, to, "double", "V1 is not greater than v2");
 
@@ -276,7 +231,7 @@ public class DoubleValidationContractTests {
 
         Optional<Double> doubleOptional = Optional.ofNullable(null);
 
-        var wrongOptional = new Contract()
+        Contract wrongOptional = new Contract()
             .requires()
             .isNullOrOptional(doubleOptional, "double", "The BigDecimal is required");
 
@@ -285,7 +240,7 @@ public class DoubleValidationContractTests {
 
         Optional<Double> doubleNull = null;
         
-        var wrongNull = new Contract()
+        Contract wrongNull = new Contract()
             .requires()
             .isNullOrOptional(doubleNull, "double", "The BigDecimal is required");
 
@@ -293,7 +248,7 @@ public class DoubleValidationContractTests {
 
         Optional<Double> doubleRight = Optional.of(10D);
         
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .isNullOrOptional(doubleRight, "double", "The BigDecimal is required");
 

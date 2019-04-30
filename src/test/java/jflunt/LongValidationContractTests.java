@@ -14,17 +14,17 @@ public class LongValidationContractTests {
     @Test
     public void isGreaterThanInteger() {
 
-        var v1 = 5;
-        var v2 = 10L;
+        int v1 = 5;
+        long v2 = 10L;
 
-        var wrong = new Contract()
+        Contract wrong = new Contract()
             .requires()
             .isGreaterThan(v1, v2, "integer", "V1 is not greater than v2");
 
         assertEquals(false, wrong.isValid());
         assertEquals(1, wrong.getNotifications().size());
 
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .isGreaterThan(v2, v1, "integer", "V1 is not greater than v2");
 
@@ -34,10 +34,10 @@ public class LongValidationContractTests {
     @Test
     public void isGreaterThanBigDouble() {
         
-        var v1 = 5D;
-        var v2 = 10L;
+        double v1 = 5D;
+        long v2 = 10L;
 
-        var wrong = new Contract()
+        Contract wrong = new Contract()
             .requires()
             .isGreaterThan(v1, v2, "integer", "V1 is not greater than v2")
             .isGreaterThan(v1, 5, "integer", "V1 is not greater than v2");
@@ -45,7 +45,7 @@ public class LongValidationContractTests {
         assertEquals(false, wrong.isValid());
         assertEquals(2, wrong.getNotifications().size());
 
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .isGreaterThan(v2, v1, "integer", "V1 is not greater than v2");
 
@@ -55,10 +55,10 @@ public class LongValidationContractTests {
     @Test
     public void isGreaterThanBigDecimal() {
 
-        var v1 = new BigDecimal(5);
-        var v2 = 10L;
+        BigDecimal v1 = new BigDecimal(5);
+        long v2 = 10L;
 
-        var wrong = new Contract()
+        Contract wrong = new Contract()
             .requires()
             .isGreaterThan(v1, v2, "integer", "V1 is not greater than v2")
             .isGreaterThan(v1, 5, "integer", "V1 is not greater than v2");
@@ -69,7 +69,7 @@ public class LongValidationContractTests {
         v1 = new BigDecimal(10);
         v2 = 5;
 
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .isGreaterThan(v1, v2, "integer", "V1 is not greater than v2");
 
@@ -79,10 +79,10 @@ public class LongValidationContractTests {
     @Test
     public void isGreaterThanFloat() {
 
-        var v1 = 5F;
-        var v2 = 10L;
+        float v1 = 5F;
+        long v2 = 10L;
 
-        var wrong = new Contract()
+        Contract wrong = new Contract()
             .requires()
             .isGreaterThan(v1, v2, "integer", "V1 is not greater than v2");
 
@@ -92,7 +92,7 @@ public class LongValidationContractTests {
         v1 = 10F;
         v2 = 5;
 
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .isGreaterThan(v1, v2, "integer", "V1 is not greater than v2");
 
@@ -102,17 +102,17 @@ public class LongValidationContractTests {
     @Test
     public void isGreaterOrEqualsThanInteger() {
         
-        var v1 = 2F;
-        var v2 = 5L;
+        float v1 = 2F;
+        long v2 = 5L;
 
-        var wrong = new Contract()
+        Contract wrong = new Contract()
             .requires()
             .isGreaterOrEqualsThan(v1, v2, "integer", "V1 is not greater than v2");
 
         assertEquals(false, wrong.isValid());
         assertEquals(1, wrong.getNotifications().size());
 
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .isGreaterOrEqualsThan(v1, new BigDecimal(1), "integer", "V1 is not greater than v2")
             .isGreaterOrEqualsThan(v1, new BigDecimal(2), "integer", "V1 is not greater than v2");
@@ -123,10 +123,10 @@ public class LongValidationContractTests {
     @Test
     public void isLowerThanBigDecimal() {
 
-        var v1 = new BigDecimal(10);
-        var v2 = 5L;
+        BigDecimal v1 = new BigDecimal(10);
+        long v2 = 5L;
 
-        var wrong = new Contract()
+        Contract wrong = new Contract()
             .requires()
             .isLowerThan(v1, v2, "integer", "V1 is not lower than v2")
             .isLowerThan(v1, new BigDecimal(5), "integer", "V1 is not lower than v2");
@@ -134,7 +134,7 @@ public class LongValidationContractTests {
         assertEquals(false, wrong.isValid());
         assertEquals(2, wrong.getNotifications().size());
 
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .isLowerThan(v2, v1, "integer", "V1 is not lower than v2");
 
@@ -144,10 +144,10 @@ public class LongValidationContractTests {
     @Test
     public void isLowerThanDouble() {
 
-        var v1 = 10D;
-        var v2 = 5L;
+        double v1 = 10D;
+        long v2 = 5L;
 
-        var wrong = new Contract()
+        Contract wrong = new Contract()
             .requires()
             .isLowerThan(v1, v2, "integer", "V1 is not lower than v2")
             .isLowerThan(v1, new BigDecimal(5), "integer", "V1 is not lower than v2");
@@ -155,7 +155,7 @@ public class LongValidationContractTests {
         assertEquals(false, wrong.isValid());
         assertEquals(2, wrong.getNotifications().size());
 
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .isLowerThan(v2, v1, "integer", "V1 is not lower than v2");
 
@@ -165,10 +165,10 @@ public class LongValidationContractTests {
     @Test
     public void isLowerThanFloat() {
 
-        var v1 = 10F;
-        var v2 = 5L;
+        float v1 = 10F;
+        long v2 = 5L;
 
-        var wrong = new Contract()
+        Contract wrong = new Contract()
             .requires()
             .isLowerThan(v1, v2, "integer", "V1 is not lower than v2")
             .isLowerThan(v1, new BigDecimal(5), "integer", "V1 is not lower than v2");
@@ -176,7 +176,7 @@ public class LongValidationContractTests {
         assertEquals(false, wrong.isValid());
         assertEquals(2, wrong.getNotifications().size());
 
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .isLowerThan(v2, v1, "integer", "V1 is not lower than v2");
 
@@ -186,10 +186,10 @@ public class LongValidationContractTests {
     @Test
     public void isLowerThanInteger() {
 
-        var v1 = 10;
-        var v2 = 5L;
+        int v1 = 10;
+        long v2 = 5L;
 
-        var wrong = new Contract()
+        Contract wrong = new Contract()
             .requires()
             .isLowerThan(v1, v2, "integer", "V1 is not lower than v2")
             .isLowerThan(v1, new BigDecimal(5), "integer", "V1 is not lower than v2");
@@ -197,7 +197,7 @@ public class LongValidationContractTests {
         assertEquals(false, wrong.isValid());
         assertEquals(2, wrong.getNotifications().size());
 
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .isLowerThan(v2, v1, "integer", "V1 is not lower than v2");
 
@@ -207,11 +207,11 @@ public class LongValidationContractTests {
     @Test
     public void isBetween() {
 
-        var val = 20;
-        var from = 11;
-        var to = 10;
+        int val = 20;
+        int from = 11;
+        int to = 10;
 
-        var wrong = new Contract()
+        Contract wrong = new Contract()
             .requires()
             .isBetween(val, from, to, "integer", "The value 20 must be between 11 and 12");
 
@@ -222,7 +222,7 @@ public class LongValidationContractTests {
         from = 10;
         to = 12;
 
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .isBetween(val, from, to, "integer", "V1 is not greater than v2");
 
@@ -234,7 +234,7 @@ public class LongValidationContractTests {
 
         Optional<Long> longOptional = Optional.ofNullable(null);
 
-        var wrongOptional = new Contract()
+        Contract wrongOptional = new Contract()
             .requires()
             .isNullOrOptional(longOptional, "float", "The BigDecimal is required");
 
@@ -243,7 +243,7 @@ public class LongValidationContractTests {
 
         Optional<Long> longNull = null;
         
-        var wrongNull = new Contract()
+        Contract wrongNull = new Contract()
             .requires()
             .isNullOrOptional(longNull, "float", "The BigDecimal is required");
 
@@ -251,7 +251,7 @@ public class LongValidationContractTests {
 
         Optional<Long> longRight = Optional.of(10L);
         
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .isNullOrOptional(longRight, "float", "The BigDecimal is required");
 

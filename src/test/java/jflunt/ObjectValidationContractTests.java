@@ -13,9 +13,9 @@ public class ObjectValidationContractTests {
     public void isNull() {
 
         Object obj = 10;
-        var message = "Object is not null";
+        String message = "Object is not null";
 
-        var contract = new Contract()
+        Contract contract = new Contract()
             .requires()
             .isNull(obj, "object", message);
 
@@ -28,9 +28,9 @@ public class ObjectValidationContractTests {
     public void isNotNull() {
 
         Object obj = null;
-        var message = "Object is null";
+        String message = "Object is null";
 
-        var contract = new Contract()
+        Contract contract = new Contract()
             .requires()
             .isNotNull(obj, "object", message);
 
@@ -44,9 +44,9 @@ public class ObjectValidationContractTests {
 
         Object obj = 10;
         Object obj1 = 20;
-        var message = "Object is not equal";
+        String message = "Object is not equal";
 
-        var worng = new Contract()
+        Contract worng = new Contract()
             .requires()
             .areEquals(obj, obj1, "object", message);
 
@@ -57,7 +57,7 @@ public class ObjectValidationContractTests {
         obj = 10;
         obj1 = "sample string";
 
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .areEquals(obj, obj1, "object", message);
 
@@ -71,9 +71,9 @@ public class ObjectValidationContractTests {
 
         Object obj = 10;
         Object obj1 = 10;
-        var message = "Object is equal";
+        String message = "Object is equal";
 
-        var contract = new Contract()
+        Contract contract = new Contract()
             .requires()
             .areNotEquals(obj, obj1, "object", message);
 

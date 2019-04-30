@@ -15,14 +15,14 @@ public class UUIDValidationContractTests {
 
         UUID uuid = UUID.randomUUID();
 
-        var wrong = new Contract()
+        Contract wrong = new Contract()
             .requires()
             .areEquals(uuid, UUID.randomUUID(), "uuid", "UUID is not equal");
 
         assertEquals(false, wrong.isValid());
         assertEquals(1, wrong.getNotifications().size());
 
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .areEquals(uuid, uuid, "uuid", "UUID's are equals");
 
@@ -34,14 +34,14 @@ public class UUIDValidationContractTests {
 
         UUID uuid = UUID.randomUUID();
 
-        var wrong = new Contract()
+        Contract wrong = new Contract()
             .requires()
             .areNotEquals(uuid, uuid, "uuid", "UUID's are equals");
 
         assertEquals(false, wrong.isValid());
         assertEquals(1, wrong.getNotifications().size());
 
-        var right = new Contract()
+        Contract right = new Contract()
             .requires()
             .areNotEquals(uuid, UUID.randomUUID(), "uuid", "UUID's are not equals");
 

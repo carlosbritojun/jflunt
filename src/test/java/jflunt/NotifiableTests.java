@@ -11,8 +11,8 @@ public class NotifiableTests extends Notifiable{
 
     @Test
     public void AddNotificationForOneNotifiable() {
-        var phone = new Phone("011", "2345123");
-        var phone2 = new Phone("011", "2345123");
+        Phone phone = new Phone("011", "2345123");
+        Phone phone2 = new Phone("011", "2345123");
         
         addNotifications(phone);
         addNotifications(phone2);
@@ -23,8 +23,8 @@ public class NotifiableTests extends Notifiable{
 
     @Test
     public void AddNotificationForMultipleNotifiable() {
-        var phone = new Phone("011", "2345123");
-        var phone2 = new Phone("011", "2345123");
+        Phone phone = new Phone("011", "2345123");
+        Phone phone2 = new Phone("011", "2345123");
         
         addNotifications(phone, phone2);
 
@@ -34,7 +34,7 @@ public class NotifiableTests extends Notifiable{
 
     @Test
     public void NoNotificationForOneValidNotifiable() {
-        var phone = new Phone("21", "997136888");
+        Phone phone = new Phone("21", "997136888");
         
         addNotifications(phone);
 
