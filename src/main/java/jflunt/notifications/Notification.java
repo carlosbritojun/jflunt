@@ -5,7 +5,9 @@ public class Notification {
     private String property;
     private String message;
     
-    public Notification() {}
+    public Notification() {
+      
+    }
 
     public Notification(String property, String message) {
         this.setProperty(property);
